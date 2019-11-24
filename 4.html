@@ -22,53 +22,8 @@
     </style>
   </head>
   <body>
-    <div class="test-question comp">
-      <div class="qusetion">
-        <div class="statement">
-          다른 사람들에게 자신을 소개하는 것을 어려워 합니다.
-        </div>
-        <div class="decision">
-          <div class="caption agree">동의</div>
-          <div class="options">
-            <div class="option agree max">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option agree med">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option agree min">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option neutral">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option disagree min">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option disagree med">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-            <div class="option disagree max">
-              <span class="far fa-check">
-                ::before
-              </span>
-            </div>
-          </div>
-          <div class="caption disagree">비동의</div>
-        </div>
-        <div class="test-questions comp">
+
+    <div class="test-questions comp">
 
           <div class="question" v-for="(question, index) in test.questions" v-if="test.currentSet === (Math.floor(index / 6) + 1)" :ref="'question-' + index">
             <div class="statement">
@@ -98,16 +53,14 @@
                 <div class="option disagree max" :class="{ active: question.answer === 3 }" @click="testAnswerQuestion(question, index, 3)">
                     <span class="far fa-check"></span>
                 </div>
+              </div>
+              <div class="caption disagree" @click="testAnswerQuestion(question, index, 3)">비동의</div>
             </div>
-            <div class="caption disagree" @click="testAnswerQuestion(question, index, 3)">비동의</div>
-        </div>
-        <div class="decision mobile">
-            <div class="caption agree">동의</div>
-            <div class="caption disagree">비동의</div>
-        </div>
+    <div class="decision mobile">
+        <div class="caption agree">동의</div>
+        <div class="caption disagree">비동의</div>
     </div>
-
-</div>
+    </div>
 
 <div class="action-row">
     <button v-if="test.currentSet < 10" class="btn btn-action" @click="testShowNextSet">
